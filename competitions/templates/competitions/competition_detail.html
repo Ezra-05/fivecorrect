@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+FiveCorrect: Competitions Details
+{% endblock %}
+{% block canonical %}
+<link rel="canonical" href="#" />
+{% endblock canonical %}
+{% block content %}
+{% block styles %}
+<style type="text/css">
+    @media screen and (max-width: 600px) {
+        div.about-intro__textContent{
+            margin-top: -400px;
+        }
+    }
+</style>
+{% endblock styles %}
+        <!-- Breadcrumb Starts Here -->
+        <div class="py-0">
+            <div class="container">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="fs-6 text-secondary">Home</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- Breadcrumb Ends Here -->
+
+        <!-- New section -->
+<section>
+<div class="site-content">
+<div class="posts">
+<div class="container">
+            <div class="row welcome">
+                <div class="col-md-8 card mb-4  mt-3 left  top">
+                    <h3 class="display-6">Five Correct Weekly Competitions Details</h3>
+                </div> 
+            </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 card mb-4 mt-3 left top" id="love-calculator-intro">
+            <h2 class="text-white font-title--sm">{{ competition.name }}</h2>
+            <ul>
+                {% for match in matches %}
+                    <li>{{ match.home_team }} vs {{ match.away_team }} - {{ match.start_time }} - <a href="{% url 'competitions:make_prediction' match.id %}">Make Prediction</a>
+                    </li>
+                    <br>
+                {% endfor %}
+            </ul>
+            <div class="d-flex justify-content-between">
+                <a href="{% url 'competitions:calculate_results' competition.id %}" class="btn btn-primary">Calculate Results</a>
+                <a href="{% url 'competitions:leaderboard' competition.id %}" class="btn btn-secondary">View Leaderboard</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section>
+<!-- New section -->
+
+<!-- About Feature Starts Here -->
+<br><br><br>
+<!-- About Feature Ends Here -->
+{% endblock %}

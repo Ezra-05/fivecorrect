@@ -1,0 +1,44 @@
+<!-- New Sign in -->
+
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} FiveCorrect: Sign in {% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="#" />
+{% endblock canonical %}
+
+{% block content %}
+
+<section>
+<div class="site-content">
+<div class="posts">
+<div class="container">
+            <div class="row welcome">
+                <div class="col-md-8 card mb-4  mt-3 left  top">
+                    <h3 class="display-6">Five Correct Sign in</h3>
+                </div> 
+            </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 card mb-4 mt-3 left top" id="love-calculator-intro">
+           <h2>Login</h2>
+				<form method="post">
+				    {% csrf_token %}
+				    {{ form|crispy }}
+				    <button type="submit" class="btn btn-primary">Sign In</button>
+				</form>
+  			<p class="text-center">Don't have an account? <a href="{% url 'signup' %}">Sign Up</a>.</p>
+		<br><br><br><br><br>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}
+
+

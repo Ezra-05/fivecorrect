@@ -1,0 +1,120 @@
+    <!-- Footer Starts Here -->
+{% load static %}
+        <footer class="footer footer--two">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="footer__wrapper">
+                            <div class="footer__wrapper_logo">
+                                <a class="navbar-brand" href="/"><span style="color: blue;">Five</span><span style="color: #00af91">Correct</span></a>
+                            </div>
+                            <p>
+                                A platform for predicting five correct score and win prize.
+                            </p>
+                           <!--Social Medias-->
+                             <div class="footer__wrapper_social d-none d-lg-block">
+                                <ul>
+                                     <!-- Facebook -->
+                                    <li>
+                                        <a href="#">
+                                            <svg width="9" height="18" viewBox="0 0 9 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M7.3575 2.98875H9.00075V0.12675C8.71725 0.08775 7.74225 0 6.60675 0C4.2375 0 2.6145 1.49025 2.6145 4.22925V6.75H0V9.9495H2.6145V18H5.82V9.95025H8.32875L8.727 6.75075H5.81925V4.5465C5.82 3.62175 6.069 2.98875 7.3575 2.98875Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                           <!---->
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-4 col-6">
+                        <div class="footer__list">
+                            <h6>Quick Links</h6>
+                            <ul>
+                                <li><a href="{% url 'competitions:competition_list' %}">Competitions</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Terms of Use</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- User profile -->
+                    <div class="col-lg-2 col-sm-4 col-6">
+                        <div class="footer__list">
+                            <h6>Account</h6>
+                            <ul class="navbar-nav mr-auto">
+                              {% if user.is_authenticated %}
+
+                              <li class="nav-item">
+                                    <span class="nav-link">Hi {{ user.username }}!</span>
+                              </li>
+
+                              <li class="nav-item">
+                                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                              </li>
+
+                              {% else %}
+
+                              <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                              </li>
+
+                              <li class="nav-item">
+                                <a class="nav-link" href="{% url 'signup' %}">Register</a>
+                              </li>
+
+                              {% endif %}
+                        </ul>
+                        </div>
+                    </div>
+
+                  <!--Social Medias-->
+                   <div class="col-12 d-block d-lg-none">
+                        <div class="footer__wrapper_social d-flex my-4">
+                            <ul>
+                                 <!-- Facebook -->
+                                    <li>
+                                        <a href="#">
+                                            <svg width="9" height="18" viewBox="0 0 9 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M7.3575 2.98875H9.00075V0.12675C8.71725 0.08775 7.74225 0 6.60675 0C4.2375 0 2.6145 1.49025 2.6145 4.22925V6.75H0V9.9495H2.6145V18H5.82V9.95025H8.32875L8.727 6.75075H5.81925V4.5465C5.82 3.62175 6.069 2.98875 7.3575 2.98875Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </a>
+                                    </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                  <!---->
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="container">
+                    <div class="footer__bottom-content">
+                        <div class="footer__bottom_copyright">
+                            <p>© 2024 - FiveCorrect. All rights reserved</p>
+                        </div>
+                        <div class="footer__bottom_topbutton">
+                            <a href="#">
+                                Go To Top
+                                <div class="icon ms-2">
+                                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 5L5 1L1 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>

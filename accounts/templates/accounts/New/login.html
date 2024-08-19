@@ -1,0 +1,59 @@
+{% extends "blog/base.html" %}
+{% block author %}
+<meta name="author" content="Esdras">
+{% endblock author %}
+{% block title %}
+<title>Login for checking your free mcqs score progress</title>
+{% endblock %}
+{% block description %}
+<meta name="description" content="Login enable you to check your performance in practicing mcqs.">
+{% endblock %}
+{% block keywords %}
+<meta name="keywords" content="login, score progress, average score">
+{% endblock %}
+
+{% block metaindex %}
+<meta name="robots" content="noindex" />
+{% endblock %}
+{% block canonical %}
+<link rel="canonical" href="https://www.mcqsmonitor.com/accounts/login/" />
+{% endblock canonical %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row my-3">
+        <div class="col-sm-6 offset-sm-3">
+            <h3>User Login</h3>
+            <hr>
+            <form action="" method="post" novalidate class="shadow p-5">
+                {% csrf_token %}
+
+                {% for fm in form %}
+               {{fm.label_tag}}{{fm}}
+               <small class="text-danger">{{fm.errors|striptags}}</small>
+               <br>
+             {% endfor %}
+
+             <small><a href="{% url 'quizes:password_reset' %}">Forgot Password ?</a></small>
+             <br>
+             <input type="submit" class="btn btn-primary mt-4" value="Login" >
+             <div class="text-center text-primary fw-bold">
+                <small>New User? <a href="{% url 'quizes:customerregistration' %}"
+                    class="text-danger">Create an Account</a></small>
+
+             </div>
+
+             {% if form.non_field_errors %}
+              {% for error in form.non_field_errors %}
+               <p class="alert alert-danger my-3">{{error}}</p>
+              {% endfor %}
+            {% endif %}
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
